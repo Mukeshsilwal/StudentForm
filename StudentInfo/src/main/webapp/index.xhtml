@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>student</title>
+    </h:head>
+    <h:body>
+        <f:view>
+<h:link value="insert" outcome="insert" />
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{studentControl.findAll()}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Studentclass"/>
+                        </f:facet>
+                        <h:outputText value="#{item.studentclass}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Studentaddress"/>
+                        </f:facet>
+                        <h:outputText value="#{item.studentaddress}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Studentname"/>
+                        </f:facet>
+                        <h:outputText value="#{item.studentname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Studentsubject"/>
+                        </f:facet>
+                        <h:outputText value="#{item.studentsubject}"/>
+                    </h:column>
+                     <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Action"/>
+                        </f:facet>
+                         
+                         <h:commandLink value="update" action="#{studentControl.update(item)}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Action"/>
+                        </f:facet>
+                         
+                        <h:commandLink value="Delete" action="#{studentControl.delete(item)}" onclick="return confirm('Are you sure you want to delete (Y/N)')" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+
+    </h:body>
+</html>
+
